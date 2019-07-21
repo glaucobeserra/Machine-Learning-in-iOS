@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var firstTime = true
     
     lazy var classificationRequest: VNCoreMLRequest = {
-        let visionModel = try! VNCoreMLModel(for: HealthySnacks().model)
+        let visionModel = try! VNCoreMLModel(for: MultiSnacks().model)
         let request = VNCoreMLRequest(model: visionModel) { [unowned self] request, _ in
             self.processObservations(for: request)
         }
@@ -96,21 +96,18 @@ class ViewController: UIViewController {
     
     func processObservations(for request: VNRequest) {
         DispatchQueue.main.async {
-            guard let result = request.results?.first as? VNClassificationObservation else { return }
+            guard let observations = (request.results as? [VNClassificationObservation])?.prefix(3) else { return }
             self.resultsLabel.text =
-                result.confidence > 0.8
-                ? {
+                observations.map { observation in
                     let formatter = NumberFormatter()
                     formatter.maximumFractionDigits = 1
-                    let calculatedResult = result.confidence * 100
+                    let calculatedResult = observation.confidence * 100
                     guard let confidencePercentage = formatter.string(from: NSNumber(value: calculatedResult)) else {
                         return "Ops. 100% chance of an error occurring 🤪"
                     }
-                    return "\(result.identifier) \(confidencePercentage)%"
-                    } ()
-                : "Not sure!"
-            
-            
+                    return "\(observation.identifier) \(confidencePercentage)%"
+                    }
+                    .joined(separator: "\n")
             self.showResultsView()
         }
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		787F87DD22E3D7ED0016B259 /* HealthySnacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 787F87DC22E3D7ED0016B259 /* HealthySnacks.mlmodel */; };
+		787F87DF22E3ECC30016B259 /* MultiSnacks.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 787F87DE22E3ECC20016B259 /* MultiSnacks.mlmodel */; };
 		7B11BA832048333700D790AA /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B11BA822048333700D790AA /* CGImagePropertyOrientation.swift */; };
 		7BF6C660204818EC00606217 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6C65F204818EC00606217 /* AppDelegate.swift */; };
 		7BF6C662204818EC00606217 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF6C661204818EC00606217 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		787F87DC22E3D7ED0016B259 /* HealthySnacks.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HealthySnacks.mlmodel; sourceTree = "<group>"; };
+		787F87DE22E3ECC20016B259 /* MultiSnacks.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MultiSnacks.mlmodel; sourceTree = "<group>"; };
 		7B11BA822048333700D790AA /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
 		7BF6C65C204818EC00606217 /* HealthySnacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthySnacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BF6C65F204818EC00606217 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		787F87E022E3ECCA0016B259 /* ML Models */ = {
+			isa = PBXGroup;
+			children = (
+				787F87DE22E3ECC20016B259 /* MultiSnacks.mlmodel */,
+				787F87DC22E3D7ED0016B259 /* HealthySnacks.mlmodel */,
+			);
+			path = "ML Models";
+			sourceTree = "<group>";
+		};
 		7BF6C653204818EC00606217 = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +69,7 @@
 		7BF6C65E204818EC00606217 /* Snacks */ = {
 			isa = PBXGroup;
 			children = (
-				787F87DC22E3D7ED0016B259 /* HealthySnacks.mlmodel */,
+				787F87E022E3ECCA0016B259 /* ML Models */,
 				7BF6C65F204818EC00606217 /* AppDelegate.swift */,
 				7BF6C661204818EC00606217 /* ViewController.swift */,
 				7B11BA822048333700D790AA /* CGImagePropertyOrientation.swift */,
@@ -144,6 +155,7 @@
 				7BF6C662204818EC00606217 /* ViewController.swift in Sources */,
 				7BF6C660204818EC00606217 /* AppDelegate.swift in Sources */,
 				7B11BA832048333700D790AA /* CGImagePropertyOrientation.swift in Sources */,
+				787F87DF22E3ECC30016B259 /* MultiSnacks.mlmodel in Sources */,
 				787F87DD22E3D7ED0016B259 /* HealthySnacks.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
