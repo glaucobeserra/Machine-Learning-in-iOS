@@ -97,11 +97,20 @@ class ViewController: UIViewController {
     func processObservations(for request: VNRequest) {
         DispatchQueue.main.async {
             guard let result = request.results?.first as? VNClassificationObservation else { return }
-            let formatter = NumberFormatter()
-            formatter.maximumFractionDigits = 1
-            let calculatedResult = result.confidence * 100
-            guard let confidencePercentage = formatter.string(from: NSNumber(value: calculatedResult)) else { return }
-            self.resultsLabel.text = "\(result.identifier) \(confidencePercentage)%"
+            self.resultsLabel.text =
+                result.confidence > 0.8
+                ? {
+                    let formatter = NumberFormatter()
+                    formatter.maximumFractionDigits = 1
+                    let calculatedResult = result.confidence * 100
+                    guard let confidencePercentage = formatter.string(from: NSNumber(value: calculatedResult)) else {
+                        return "Ops. 100% chance of an error occurring 🤪"
+                    }
+                    return "\(result.identifier) \(confidencePercentage)%"
+                    } ()
+                : "Not sure!"
+            
+            
             self.showResultsView()
         }
     }
